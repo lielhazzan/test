@@ -1,15 +1,33 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>DevOps Project</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>ברוכה הבאה לפרויקט ה-DevOps שלי!</h1>
-    <p>הדף הזה מוגש על ידי פייתון.</p>
-    
-    <button id="myBtn">לחצי עליי</button>
+    <h1>לוח בקרה DevOps</h1>
+    <div class="status-box">
+        <p>נתיב נוכחי: <code>{{ info.directory }}</code></p>
+        <p>סה"כ פריטים בתיקייה: <strong>{{ info.total_files }}</strong></p>
+    </div>
+
+    <h3>רשימת קבצים בפרויקט:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>שם הקובץ / תיקייה</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr>
+                <td>{{ file }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
