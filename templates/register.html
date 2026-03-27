@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - DevOps System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <h2>Register</h2>
+        <p style="color: #666; font-size: 14px; margin-bottom: 20px;">Join our system</p>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Choose Username" required>
+            <input type="password" name="password" placeholder="Choose Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <p style="margin-top: 15px; font-size: 14px;">
+            Already have an account? <a href="/login" style="color: #3498db; font-weight: bold;">Login here</a>
+        </p>
+    </div>
+</body>
+</html>

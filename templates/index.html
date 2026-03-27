@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>לוח בקרה DevOps</h1>
-    <div class="status-box">
-        <p>נתיב נוכחי: <code>{{ info.directory }}</code></p>
-        <p>סה"כ פריטים בתיקייה: <strong>{{ info.total_files }}</strong></p>
+    <div style="text-align: right; padding: 15px;">
+        <a href="/logout" style="color: #e74c3c; text-decoration: none; font-weight: bold;">Logout</a>
     </div>
 
-    <h3>רשימת קבצים בפרויקט:</h3>
+    <h1 class="welcome-title">{{ welcome_msg }}</h1>
+    
+    <div class="status-box">
+        <h3>System Status</h3>
+        <p>OS: <strong>{{ info.os }}</strong> | User: <strong>{{ info.user }}</strong></p>
+        <p>Path: <code>{{ info.directory }}</code></p>
+    </div>
+
+    <h3>Files in Project:</h3>
     <table>
-        <thead>
-            <tr>
-                <th>שם הקובץ / תיקייה</th>
-            </tr>
-        </thead>
+        <thead><tr><th>Name</th></tr></thead>
         <tbody>
             {% for file in files %}
-            <tr>
-                <td>{{ file }}</td>
-            </tr>
+            <tr><td>{{ file }}</td></tr>
             {% endfor %}
         </tbody>
     </table>
-
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
